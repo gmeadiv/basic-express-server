@@ -1,8 +1,11 @@
 {
-  "name": "server-deployment-practice",
+  "name": "basic-express-server",
   "version": "1.0.0",
-  "description": "- Class One demo",
+  "description": "Created by George Mead",
   "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -11,22 +14,18 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
-    "test": "jest --verbose --coverage --watch",
-    "test:watch": "jest --watch"
+    "dev": "nodemon index.js",
+    "test": "jest --watchAll --verbose --coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gmeadiv/server-deployment-practice.git"
+    "url": "git+https://github.com/gmeadiv/basic-express-server.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gmeadiv/server-deployment-practice/issues"
+    "url": "https://github.com/gmeadiv/basic-express-server/issues"
   },
-  "homepage": "https://github.com/gmeadiv/server-deployment-practice#readme",
-  "directories": {
-    "lib": "lib"
-  }
+  "homepage": "https://github.com/gmeadiv/basic-express-server#readme"
 }

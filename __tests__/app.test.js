@@ -1,6 +1,6 @@
 'use strict';
 
-const app = require('../app.js');
+const app = require('../lib/server.js');
 const supertest = require('supertest')
 const { it, expect } = require("@jest/globals");
 

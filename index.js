@@ -1,8 +1,5 @@
 'use strict';
 
-const app = require('./app.js');
-const PORT = process.env.PORT;
+const app = require('./lib/server.js');
 
-app.listen(3004, () => {
-  console.log('catch up cause this server is running!')
-})
+app.start();
