@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function (error, request, response, next) {
-  response.status(405);
+  console.log(error, '<-- 500 ERROR');
+  response.status(500);
   response.end();
-}
+};

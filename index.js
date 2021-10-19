@@ -1,5 +1,7 @@
 'use strict';
 
-const app = require('./lib/server.js');
+const app = require('./src/server.js');
 
-app.start();
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => console.log('you are running in', PORT));

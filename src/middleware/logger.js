@@ -8,6 +8,6 @@ module.exports = function(request, response, next) {
   if (method === 'GET' || method === 'POST') {
     next();
   } else {
-    next('massive error')
+    next('massive error');
   }
-}
+};
