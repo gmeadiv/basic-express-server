@@ -1,14 +1,12 @@
 'use strict';
 
-module.exports = function (error, request, response, next) {
+module.exports = function (request, response, next) {
   const method = request.method;
   const path = request.url;
 
-  if (method !== 'GET' || method !== 'POST') {
-    console.log('404 ERROR');
-    response.status(404);
-    response.end();
-  } else if (!path === '/person') {
+  console.log(method, method !== 'GET', '<-- METHOD --<<');
+
+  if (method !== 'GET' || method !== 'POST' || path !== '/person') {
     console.log('404 ERROR');
     response.status(404);
     response.end();

@@ -18,6 +18,7 @@ app.use(validator);
 app.use(error404);
 app.use(error500);
 
+
 app.get('/', (request, response) => {
   response.send('better catch up cause this server is a-running!');
 });
