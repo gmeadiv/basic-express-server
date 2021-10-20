@@ -13,5 +13,5 @@ describe('TESTING LOGGER', () => {
     logger(request, response, next);
 
     expect(console.log).toHaveBeenCalled();
-  })
-})
+  });
+});

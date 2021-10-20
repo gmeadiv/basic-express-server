@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(request, response, next) {
-  console.log(request.method, '<-- REQUEST DOT METHOD -<<');
+  console.log('PATH -->', request.url, 'METHOD -->', request.method);
 
   let method = request.method;
 

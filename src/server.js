@@ -7,7 +7,14 @@ require('dotenv').config();
 
 const PORT = process.env.PORT;
 
+const logger = require('./middleware/logger.js');
+const error404 = require('./error-handlers/404.js');
+const error500 = require('./error-handlers/500.js');
+
 app.use(express.json());
+app.use(logger);
+app.use(error404);
+app.use(error500);
 
 app.get('/', (request, response) => {
   response.send('better catch up cause this server is a-running!');
