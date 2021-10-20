@@ -8,11 +8,13 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 
 const logger = require('./middleware/logger.js');
+const validator = require('./middleware/validator.js');
 const error404 = require('./error-handlers/404.js');
 const error500 = require('./error-handlers/500.js');
 
 app.use(express.json());
 app.use(logger);
+app.use(validator);
 app.use(error404);
 app.use(error500);
 

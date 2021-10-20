@@ -10,13 +10,10 @@ describe('Testing the logging middleware', () => {
   console.log = jest.fn();
 
   it('should be able to log a method and a path', () => {
-
-    // actually use our logger
     logger(req, res, next);
 
     expect(console.log).toHaveBeenCalledWith('PATH -->', '/person', 'METHOD -->', 'GET');
     expect(next).toHaveBeenCalled();
-    // expect(next).toHaveBeenCalledWith('Error text');
   });
 
   it('Should throw an error when a different method is called', () => {
