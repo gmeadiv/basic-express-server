@@ -4,9 +4,9 @@ module.exports = function (request, response, next) {
   const method = request.method;
   const path = request.url;
 
-  console.log(method, method !== 'GET', '<-- METHOD --<<');
+  console.log(method === 'GET', '<-- 404 LOG --<<');
 
-  if (method !== 'GET' || method !== 'POST' || path !== '/person') {
+  if (method !== 'GET' || path !== '/person') {
     console.log('404 ERROR');
     response.status(404);
     response.end();
