@@ -1,17 +1,36 @@
 'use strict';
 
-const { describe } = require('yargs');
-const logger = require('../middleware/logger.js');
+const logger = require('../src/middleware/logger.js');
 
-describe('TESTING LOGGER', () => {
-  let request = {method: 'GET'};
-  let response = {};
-  let next = jest.fn();
+describe('Testing the logging middleware', () => {
+
+  let req = {method: 'GET', url: '/person'};
+  let res = {};
+  let next = jest.fn(); // a jest "spy"
   console.log = jest.fn();
 
-  it('Should be able to log a method', () => {
-    logger(request, response, next);
+  it('should be able to log a method and a path', () => {
 
-    expect(console.log).toHaveBeenCalled();
+    // actually use our logger
+    logger(req, res, next);
+
+    expect(console.log).toHaveBeenCalledWith('PATH -->', '/person', 'METHOD -->', 'GET');
+    expect(next).toHaveBeenCalled();
+    // expect(next).toHaveBeenCalledWith('Error text');
+  });
+
+  it('Should throw an error when a different method is called', () => {
+    req.method = 'PUT';
+
+    logger(req, res, next);
+    expect(next).toHaveBeenCalledWith('massive error');
+  });
+
+  it('Should throw an error when the wrong path is pursued', () => {
+    req.method = 'GET';
+    req.url = '/wrong';
+
+    logger(req, res, next);
+    expect(next).toHaveBeenCalledWith('massive error');
   });
 });

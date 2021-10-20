@@ -1,10 +1,10 @@
-'use strict';
+// 'use strict';
 
-const app = require('../lib/server.js');
-const supertest = require('supertest')
-const { it, expect } = require("@jest/globals");
+// const app = require('../lib/server.js');
+// const supertest = require('supertest')
+// const { it, expect } = require("@jest/globals");
 
-const request = supertest(app);
+// const request = supertest(app);
 
 // describe('Testing my express server', () => {
 //   it('should respond with a string on POST /talk', async () => {
@@ -25,25 +25,25 @@ const request = supertest(app);
 //   })
 // })
 
-describe('TESTING TALK', () => {
-  it('Should respond with a new phrase', async () => {
-    const response = await request.post('/talk').send({
-      words: 'some words'
-    })
-    expect(response.status).toBe(200);
-    expect(typeof response.text).toBe('string');  
-  })
+// describe('TESTING TALK', () => {
+//   it('Should respond with a new phrase', async () => {
+//     const response = await request.post('/talk').send({
+//       words: 'some words'
+//     })
+//     expect(response.status).toBe(200);
+//     expect(typeof response.text).toBe('string');  
+//   })
 
-  it('Should respond with the last phrase on GET to /repeat', async () => {
-    const response = await request.get('/repeat');
+//   it('Should respond with the last phrase on GET to /repeat', async () => {
+//     const response = await request.get('/repeat');
 
-    expect(response.status).toBe(200);
-    expect(typeof response.text).toBe('string');
-  })
+//     expect(response.status).toBe(200);
+//     expect(typeof response.text).toBe('string');
+//   })
 
-  it('Should reject PUT requests', async () => {
-    const response = await request.put('/')
+//   it('Should reject PUT requests', async () => {
+//     const response = await request.put('/')
 
-    expect(response.status).toBe(405)
-  })
-})
+//     expect(response.status).toBe(405)
+//   })
+// })
