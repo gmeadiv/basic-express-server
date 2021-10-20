@@ -2,7 +2,7 @@
 
 const logger = require('../src/middleware/logger.js');
 
-describe('Testing the logging middleware', () => {
+xdescribe('Testing the logging middleware', () => {
 
   let req = {method: 'GET', url: '/person'};
   let res = {};
