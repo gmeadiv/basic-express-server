@@ -23,7 +23,6 @@ app.get('/', (request, response) => {
 });
 
 app.get('/person', (request, response) => {
-  console.log(request.body, '<-- REQUEST DOT BODY --<<');
   response.send('you are in');
 });
 

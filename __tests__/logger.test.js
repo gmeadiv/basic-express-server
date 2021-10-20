@@ -2,32 +2,33 @@
 
 const logger = require('../src/middleware/logger.js');
 
-xdescribe('Testing the logging middleware', () => {
+describe('Testing the logging middleware', () => {
 
-  let req = {method: 'GET', url: '/person'};
-  let res = {};
-  let next = jest.fn(); // a jest "spy"
+  let request = {method: 'GET', url: '/person'};
+  let response = {};
+  let next = jest.fn();
   console.log = jest.fn();
 
   it('should be able to log a method and a path', () => {
-    logger(req, res, next);
+    logger(request, response, next);
 
     expect(console.log).toHaveBeenCalledWith('PATH -->', '/person', 'METHOD -->', 'GET');
     expect(next).toHaveBeenCalled();
   });
 
   it('Should throw an error when a different method is called', () => {
-    req.method = 'PUT';
+    request.method = 'PUT';
 
-    logger(req, res, next);
+    logger(request, response, next);
+    expect(console.log).toHaveBeenCalledWith('PATH -->', '/person', 'METHOD -->', 'PUT');
     expect(next).toHaveBeenCalledWith('massive error');
   });
 
   it('Should throw an error when the wrong path is pursued', () => {
-    req.method = 'GET';
-    req.url = '/wrong';
+    request.method = 'GET';
+    request.url = '/wrong';
 
-    logger(req, res, next);
+    logger(request, response, next);
     expect(next).toHaveBeenCalledWith('massive error');
   });
 });
