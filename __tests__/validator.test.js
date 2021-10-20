@@ -23,7 +23,7 @@ describe('Testing the validating middleware', () => {
     expect(next).toHaveBeenCalledWith('empty string');
   });
 
-  it('Should throw an error when the wrong path is pursued', () => {
+  it('Should throw an error if there is no name at all', () => {
     request.body.name = false;
 
     validator(request, response, next);
