@@ -12,7 +12,7 @@ describe('Testing the logging middleware', () => {
   it('should be able to log a method and a path', () => {
     logger(request, response, next);
 
-    expect(console.log).toHaveBeenCalledWith('PATH -->', '/person', 'METHOD -->', 'GET');
+    expect(console.log).toHaveBeenCalledWith('PATH:', '/person', 'METHOD:', 'GET');
     expect(next).toHaveBeenCalled();
   });
 
@@ -20,8 +20,8 @@ describe('Testing the logging middleware', () => {
     request.method = 'PUT';
 
     logger(request, response, next);
-    expect(console.log).toHaveBeenCalledWith('PATH -->', '/person', 'METHOD -->', 'PUT');
-    expect(next).toHaveBeenCalledWith('massive error');
+    expect(console.log).toHaveBeenCalledWith('PATH:', '/person', 'METHOD:', 'PUT');
+    expect(next).toHaveBeenCalledWith();
   });
 
   it('Should throw an error when the wrong path is pursued', () => {
@@ -29,6 +29,6 @@ describe('Testing the logging middleware', () => {
     request.url = '/wrong';
 
     logger(request, response, next);
-    expect(next).toHaveBeenCalledWith('massive error');
+    expect(next).toHaveBeenCalledWith();
   });
 });

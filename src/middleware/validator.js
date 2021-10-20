@@ -5,8 +5,10 @@ module.exports = function(request, response, next) {
 
   if (typeof request.body.name === 'string' && request.body.name === '') {
     next('empty string');
+
   } else if (typeof request.body.name === 'string') {
     next();
+    
   } else {
     next('no name');
   }
