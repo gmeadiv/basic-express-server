@@ -3,6 +3,10 @@
 const express = require('express');
 const app = express();
 
+require('dotenv').config();
+
+const PORT = process.env.PORT;
+
 app.use(express.json());
 
 app.get('/', (request, response) => {
@@ -15,9 +19,9 @@ app.get('/person', (request, response) => {
 });
 
 
-// module.exports = {
-//   app,
-//   start: app.listen(PORT, () => console.log('better catch up cause this server is a-running!')),
-// };
-
-module.exports = app;
+module.exports = {
+  app,
+  start: app.listen(PORT, () => {
+    console.log('you are running on', PORT);
+  }),
+};
